@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+</head>
+
+<body>
+
+<div th:replace="index :: nav"></div>
+
+<form class="box" th:action="@{/login}" method="post">
+    <h1>Đăng Nhập </h1>
+
+    <div th:if="${param.error}">
+        <div class="alert alert-danger"><span style="color: white">Tên đăng nhập hoặc mật khẩu không chính xác.</span></div>
+    </div>
+
+    <div th:if="${param.logout}">
+        <div class="alert alert-info"><span style="color: white">Bạn đã đăng xuất thành công.</span></div>
+    </div>
+
+    <input type="text" name="username" placeholder="Tên Đăng Nhập">
+    <input type="password" name="password" placeholder="Mật Khẩu" id="hide">
+    <input type="submit" value="Đăng Nhập">
+    <div class="form-group">
+        <span style="color: white">Bạn chưa có tài khoản? <a href="/" th:href="@{/register}">Đăng ký ở đây</a></span>
+    </div>
+</form>
+
+</body>
+</html>

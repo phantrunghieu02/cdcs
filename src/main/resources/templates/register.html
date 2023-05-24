@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng Ký</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+</head>
+<body>
+
+<div th:replace="index :: nav"></div>
+
+<form class="box" th:action="@{/register}" method="post" th:object="${user}">
+    <div th:if="${param.success}">
+        <div class="alert alert-info"><span style="color: white">Đăng ký đã thành công. Vui lòng kiểm tra địa chỉ email được cung cấp để kích hoạt tài khoản của bạn.</span></div>
+    </div>
+
+    <h1>Đăng Ký </h1>
+    <input type="text" name="username" placeholder="Tên Đăng Nhập" th:field="*{username}">
+    <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-feedback">Username error</span>
+    <input type="password" name="password" placeholder="Mật Khẩu" th:field="*{password}">
+    <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="invalid-feedback">Password error</span>
+    <input type="text" name="name" placeholder="Tên" th:field="*{name}">
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback">Name error</span>
+    <input type="text" name="surname" placeholder="Họ" th:field="*{surname}">
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}" class="invalid-feedback">Surname error</span>
+    <input type="email" name="email" placeholder="E-Mail" th:field="*{email}">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback">Email error</span>
+    <input type="text" name="phone" placeholder="Số Điện Thoại" th:field="*{phone}">
+    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" class="invalid-feedback">Phone error</span>
+    <input type="submit" value="Đăng Ký!">
+    <div class="form-group">
+        <span style="color: white">Bạn đã có tài khoản? <a href="/" th:href="@{/login}">Đăng Nhập tại đây</a></span>
+    </div>
+</form>
+
+</body>
+</html>
