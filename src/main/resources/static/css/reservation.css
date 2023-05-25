@@ -30,7 +30,7 @@ body
 .greenBox::before
 {
     content:"";
-    background:Green;
+    background:rgb(60, 128, 0);
 }
 .redBox::before
 {
@@ -65,7 +65,7 @@ table
 }
 .Displaytable td, .Displaytable th {
     border: 1px solid;
-    text-align: left;
+    text-align: center;
 }
 
 textarea
