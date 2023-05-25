@@ -24,6 +24,5 @@ public class MailServiceImpl implements MailService {
         mimeMessageHelper.setSubject(subject);
         mimeMessageHelper.setText(text, isHtmlContent);
         javaMailSender.send(mimeMessage);
-//        lỗi sendEmail nên k vào try catch đc
     }
 }

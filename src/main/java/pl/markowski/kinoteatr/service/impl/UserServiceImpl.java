@@ -73,7 +73,7 @@ public class UserServiceImpl implements UserService {
         token.setValue(tokenValue);
         token.setUser(user);
         tokenRepository.save(token);
-        String url = "localhost:8080/token?value=" + tokenValue;
+        String url = "Xin chào " +user.getName()+"! Bạn đã đăng ký tài khoản thành công, truy cập vào địa chỉ: localhost:8080/token?value=" + tokenValue+ " để xác nhận.";
         try {
             mailService.sendMail(user.getEmail(), "Register", url, false);
         } catch (MessagingException e) {
